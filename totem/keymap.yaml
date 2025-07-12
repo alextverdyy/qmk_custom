@@ -1,0 +1,202 @@
+layout: {qmk_keyboard: totem, layout_name: LAYOUT}
+layers:
+  BASE: [Q, W, E, R, T, Y, U, I, O, P, A, S, D, F, G, H, J, K, L, ';', TAB, Z, X, C, V, B, N, M, ',', '.', '?', TAB, UTIL, NAV, OS_SHT, ENT, NUM, FUN]
+  NAV:
+  - {t: ▽, type: trans}
+  - UNDO
+  - REDO
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - HOME
+  - UP
+  - END
+  - PGUP
+  - LCTL
+  - LALT
+  - LGUI
+  - LSFT
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - LEFT
+  - DOWN
+  - RIGHT
+  - PGDN
+  - BACK
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - MEH
+  - HYPR
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - '~'
+  - {t: ▽, type: trans}
+  - /
+  - {t: ▽, type: trans}
+  - FWD
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - ENT
+  - SMART BS
+  - SMART DEL
+  NUM:
+  - +
+  - '7'
+  - '8'
+  - '9'
+  - '*'
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - '0'
+  - '4'
+  - '5'
+  - '6'
+  - '='
+  - {t: ▽, type: trans}
+  - LSFT
+  - LGUI
+  - LALT
+  - LCTL
+  - (
+  - '-'
+  - '1'
+  - '2'
+  - '3'
+  - /
+  - {t: ▽, type: trans}
+  - HYPR
+  - MEH
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - )
+  - {t: ▽, type: trans}
+  - .
+  - ;
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  FUNC:
+  - F12
+  - F7
+  - F8
+  - F9
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - F11
+  - F4
+  - F5
+  - F6
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - LSFT
+  - LGUI
+  - LALT
+  - LCTL
+  - SNAP
+  - F10
+  - F1
+  - F2
+  - F3
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - HYPR
+  - MEH
+  - DM REC1
+  - DM RSTP
+  - DM PLY1
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  UTIL:
+  - QK BOOT
+  - DB TOGG
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - VOLU
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - VOLD
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - OS SWAP
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - MCTL
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - MUTE
+combos:
+  # Left hand vertical combos - top & home row
+  - {tk: [W,S], k: "@", l: [BASE]}       # at_combo = {KC_W (1), ALT_S (11)}
+  - {tk: [E,D], k: "#", l: [BASE]}       # hash_combo = {KC_E (2), GUI_D (12)}
+  - {tk: [R,F], k: "$", l: [BASE]}       # dollar_combo = {KC_R (3), SHT_F (13)}
+  - {tk: [T,G], k: "%", l: [BASE]}       # perc_combo = {KC_T (4), KC_G (14)}
+
+  # Left hand vertical combos - home & bottom row
+  - {tk: [S,X], k: "`", l: [BASE]}      # grave_combo = {ALT_S (11), KC_X (22)}
+  - {tk: [D,C], k: "\\", l: [BASE]}     # bsls_combo = {GUI_D (12), MEH_C (23)}
+  - {tk: [F,V], k: "=", l: [BASE]}      # eql_combo = {SHT_F (13), HYP_V (24)}
+  - {tk: [G,B], k: "~", l: [BASE]}      # tilde_combo = {G (14), B (25)}
+
+  # Horizontal combos
+  - {tk: [S,F], k: "Esc", l: [BASE], draw_separate: true}    # esc_combo = {ALT_S (11), SHT_F (13)}
+  - {tk: [X,C], k: "Copy", l: [BASE], draw_separate: true}   # copy_combo = {KC_X (22), MEH_C (23)}
+  - {tk: [C,V], k: "Paste", l: [BASE], draw_separate: true}  # paste_combo = {MEH_C (23), HYP_V (24)}
+  - {tk: [X,V], k: "Cut", l: [BASE], draw_separate: true}    # cut_combo = {KC_X (22), HYP_V (24)}
+
+  # Right hand vertical combos - top & home row
+  - {tk: [Y,H], k: "^", l: [BASE]}       # caret_combo = {Y (5), H (15)}
+  - {tk: [U,J], k: "+", l: [BASE]}       # plus_combo = {U (6), SHT_J (16)}
+  - {tk: [I,K], k: "*", l: [BASE]}       # star_combo = {I (7), GUI_K (17)}
+  - {tk: [O,L], k: "&", l: [BASE]}       # amp_combo = {O (8), ALT_L (18)}
+
+  # Right hand vertical combos - home & bottom row
+  - {tk: [H,N], k: "_", l: [BASE]}      # unds_combo = {H (15), N (26)}
+  - {tk: [J,M], k: "-", l: [BASE]}      # mins_combo = {SHT_J (16), HYP_M (27)}
+  - {tk: [K,','], k: "/", l: [BASE]}      # slsh_combo = {GUI_K (17), MEH_COM (28)}
+  - {tk: [L, '.'], k: "|", l: [BASE]}      # pipe_combo = {ALT_L (18), '.' (29)}
+
+  # Horizontal combos: brackets
+  - {tk: [U,I], k: "[", l: [BASE]}        # lsqr_combo = {U (6), I (7)}
+  - {tk: [I,O], k: "]", l: [BASE]}        # rsqr_combo = {I (7), O (8)}
+  - {tk: [J,K], k: "(", l: [BASE]}      # lpar_combo = {SHT_J (16), GUI_K (17)}
+  - {tk: [K, L], k: ")", l: [BASE]}      # rpar_combo = {GUI_K (17), ALT_L (18)}
+  - {tk: [M,','], k: "{", l: [BASE]}      # lcbr_combo = {HYP_M (27), MEH_COM (28)}
+  - {tk: [',', '.'], k: "}", l: [BASE]}      # rcbr_combo = {MEH_COM (28), '.' (29)}
+
+  - {tk: [H,J], k: "<", l: [BASE], a: top, offset: 1.6}      # lt_combo = {H (15), SHT_J (16)}
+  - {tk: [L,';'], k: ">", l: [BASE], a: top, offset: 1.6}      # gt_combo = {ALT_L (18), CTL_S (19)}
+
+
