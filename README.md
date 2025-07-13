@@ -8,7 +8,7 @@ I keep this as as separate directory to the forked `qmk_firmware` directory and 
 ## TOTEM
 
 <figure>
-<img src="./keymap.svg" alt="Miryoku inspired keymap for TOTEM keyboard, showing all six layers" width="100%" />
+<img src="./keymap.png" alt="Miryoku inspired keymap for TOTEM keyboard, showing all six layers" width="100%" />
 <figcaption>Keyboard layout for all layers and combos</figcaption>
 </figure>
 
