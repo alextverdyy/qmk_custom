@@ -8,7 +8,7 @@ BOOTLOADER = rp2040
 ALLOW_WARNINGS = yes
 
 # For bilateral combinations patch
-DEFERRED_EXEC_ENABLE = yes
+# DEFERRED_EXEC_ENABLE = yes
 
 # LTO must be disabled for RP2040 builds
 LTO_ENABLE = no
@@ -33,3 +33,5 @@ SPACE_CADET_ENABLE = no
 GRAVE_ESC_ENABLE = no 
 MAGIC_ENABLE = no
 
+SRC += oneshot.c
+SRC += swapper.c
