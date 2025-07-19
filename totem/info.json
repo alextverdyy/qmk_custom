@@ -4,6 +4,7 @@
     "manufacturer": "GEIST",
     "processor": "RP2040",
     "bootloader": "rp2040",
+    "modules": ["getreuer/select_word", "sm_td/sm_td"],
     "usb": {
         "vid": "0x3A3C",
         "pid": "0x0002",
