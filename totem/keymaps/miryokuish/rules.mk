@@ -4,6 +4,7 @@ KEY_OVERRIDE_ENABLE = yes
 CAPS_WORD_ENABLE = yes
 OS_DETECTION_ENABLE = yes
 DEFERRED_EXEC_ENABLE = yes 
+CONSOLE_ENABLE = yes
 
 SRC += oneshot.c
 SRC += swapper.c

@@ -58,6 +58,7 @@ enum custom_keycodes {
     CKC_K,
     CKC_L,
     CKC_SCLN,
+    CKC_BSPC,
     PREV_APP,
     NEXT_APP,
 
@@ -259,7 +260,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,
     CKC_A,   CKC_S,   CKC_D,   CKC_F,   KC_G,    KC_H,    CKC_J,   CKC_K,   CKC_L,   KC_SCLN,
     SW_INST, KC_Z,    KC_X,    MEH_C,   HYP_V,   KC_B,    KC_N,    HYP_M,   MEH_COM, KC_DOT, KC_QUOT, KC_TAB,
-                      UTIL,    NAV,     OS_SHT,  KC_ENT,  NUM,     FUN
+                      UTIL,    NAV,     OS_SHT,  KC_ENT,  CKC_BSPC,     FUN
   ),
 
   [_NAV] = LAYOUT(
@@ -303,11 +304,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         return false;
     }
 
-    update_swapper(
-        &sw_win_active, KC_LGUI, KC_TAB, SW_WIN,
-        keycode, record
-    );
-
     switch (keycode) {
         case OS_SWAP:
             if (record->event.pressed) {
@@ -320,31 +316,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 return false;
             }
         break;
-        case NEXT_APP:
-          if(down){
-            interrupt_mods();
-            if(!app_switch){
-            app_switch_start();
-            }
-            register_code(KC_TAB);
-          }else{
-            unregister_code(KC_TAB);
-          }
-          break;
-
-        // · · · · · · · · · · · · · · · · · · · · · · · · ·
-
-        case PREV_APP:
-          if(down){
-            interrupt_mods();
-            if(!app_switch){
-            app_switch_start();
-            }
-            register_code16( S(KC_TAB) );
-          }else{
-            unregister_code16( S(KC_TAB) );
-          }
-          break;
     }
 // ┌─────────────────────────────────────────────────┐
 // │ p r o d u c t i v i t y                         │
@@ -375,15 +346,64 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 */
 
+bool select_word_host_is_mac(void) {
+  switch (detected_host_os()) {
+    case OS_LINUX:
+    case OS_WINDOWS:
+      return false;
+    case OS_MACOS:
+    case OS_IOS:
+      return true;
+    default:
+      break;
+  }
+}
+
+#define IS_MAC select_word_host_is_mac()
+
 void on_smtd_action(uint16_t keycode, smtd_action action, uint8_t tap_count) {
-    switch (keycode) {
-        SMTD_MT(CKC_A, KC_A, KC_LEFT_GUI)
-        SMTD_MT(CKC_S, KC_S, KC_LEFT_ALT)
-        SMTD_MT(CKC_D, KC_D, KC_LEFT_CTRL)
-        SMTD_MT(CKC_F, KC_F, KC_LSFT)
-        SMTD_MT(CKC_J, KC_J, KC_RIGHT_SHIFT)
-        SMTD_MT(CKC_K, KC_K, KC_RIGHT_CTRL)
-        SMTD_MT(CKC_L, KC_L, KC_RIGHT_ALT)
-        SMTD_MT(CKC_SCLN, KC_SCLN, KC_RIGHT_GUI)
+  switch (keycode) {
+    SMTD_MT(CKC_A, KC_A, KC_LEFT_GUI)
+    SMTD_MT(CKC_S, KC_S, KC_LEFT_ALT)
+    SMTD_MT(CKC_D, KC_D, KC_LEFT_CTRL)
+    SMTD_MT(CKC_F, KC_F, KC_LSFT)
+    SMTD_MT(CKC_J, KC_J, KC_RIGHT_SHIFT)
+    SMTD_MT(CKC_K, KC_K, KC_RIGHT_CTRL)
+    SMTD_MT(CKC_L, KC_L, KC_RIGHT_ALT)
+    SMTD_MT(CKC_SCLN, KC_SCLN, KC_RIGHT_GUI)
+  case CKC_BSPC: {
+    switch (action) {
+    case SMTD_ACTION_TAP:
+      break;
+
+    case SMTD_ACTION_TOUCH:
+    printf("Number of taps: %d\n", tap_count);
+      switch (tap_count) {
+      case 0:
+        tap_code16(KC_BSPC);
+        break;
+      case 1:
+      case 2:
+        tap_code16(IS_MAC ? LALT(KC_BSPC) : LCTL(KC_BSPC));
+        break;
+      default:
+        tap_code16(KC_BSPC);
+        break;
+      }
+      break;
+
+    case SMTD_ACTION_HOLD:
+      if (tap_count <= 1) {
+        layer_move(_NUM);
+      } else {
+        tap_code16(LGUI(KC_BSPC));
+      }
+      break;
+
+    case SMTD_ACTION_RELEASE:
+      layer_move(0);
+      break;
     }
+  }
+  }
 }
