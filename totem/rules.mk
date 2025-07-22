@@ -33,5 +33,3 @@ SPACE_CADET_ENABLE = no
 GRAVE_ESC_ENABLE = no 
 MAGIC_ENABLE = no
 
-SRC += oneshot.c
-SRC += swapper.c
