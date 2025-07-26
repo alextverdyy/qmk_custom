@@ -1,0 +1,7 @@
+COMB(esc_combo,  KC_ESC,  KC_Q, KC_W) 
+COMB(ent_combo,  KC_ENT,  KC_Z, KC_X)
+
+SUBS(arrw_combo, "=>", KC_LCBR, KC_LPRN)
+SUBS(lteq_combo, "<=", KC_UNDS, KC_AMPR)
+SUBS(gteq_combo, ">=", KC_MINS, KC_EQL)
+SUBS(nteq_combo, "!=", KC_PIPE, KC_UNDS)

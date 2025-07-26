@@ -18,7 +18,7 @@
 # qmk compile -kb ferris/sweep -km mini3x5
 
 MY_HOME=`echo $HOME`
-QMK_HOME="$MY_HOME/git/github/qmk_firmware"
+QMK_HOME="$MY_HOME/qmk_firmware"
 
 # Gets the full path to this keymaps repo's directory
 REPO_DIR="$(realpath "$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )")"

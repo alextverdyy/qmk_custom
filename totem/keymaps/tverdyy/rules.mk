@@ -1,0 +1,12 @@
+DYNAMIC_MACRO_ENABLE = yes
+COMBO_ENABLE = yes
+CAPS_WORD_ENABLE = yes
+OS_DETECTION_ENABLE = yes
+DEFERRED_EXEC_ENABLE = yes
+REPEAT_KEY_ENABLE = yes
+CONSOLE_ENABLE = yes
+
+VPATH += keyboards/gboards
+
+SRC += oneshot.c
+
